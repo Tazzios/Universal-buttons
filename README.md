@@ -15,5 +15,5 @@ Has your favorite plugin no button? create one your self
  - Create an help button with work instruction  
 ![Help button](https://user-images.githubusercontent.com/23451105/132658135-185bd1f8-0214-460b-87f2-ccfdda1a47c0.PNG)
 
- - Create a button for a plugin without a button  
+ - Create a button for a plugin without a button (in this example my Pdfviewer plugin)  
 ![PDF viewer button](https://user-images.githubusercontent.com/23451105/132658115-819ec76f-618b-44de-a10c-9f5fc1f5f2aa.PNG)
