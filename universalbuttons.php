@@ -84,9 +84,12 @@ class plgButtonUniversalButtons extends JPlugin
 
 					case "1":
 					
-					
-					$js =  " function buttonClick".$i."(editor) { let str = '". $value->code. "';";
-					
+					// remove enters
+					$value->code= str_replace(array("\n", "\r"), ' ', $value->code); 
+
+					$js =  " function buttonClick".$i."(editor) { let str = '". $value->code . "';
+						";
+
 						$subforminputs = $value->variables;
 						$arr2 = (array) $subforminputs;
 						
@@ -94,7 +97,9 @@ class plgButtonUniversalButtons extends JPlugin
 						foreach ($arr2 as $value2) {
 							
 						$js .= " txt".$iVariable." = prompt('". $value2->Variablelabel. "','".$value2->variabledefault."');
-							str = str.replace(/%".$iVariable."/g,txt".$iVariable."); ";
+							str = str.replace(/%".$iVariable."/g,txt".$iVariable."); 
+							
+							";
 							 
 							$iVariable++;
 						}
