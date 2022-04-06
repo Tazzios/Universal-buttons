@@ -1,10 +1,186 @@
-<?xml version="1.0" encoding="utf-8"?><extension version="3.1" type="plugin" group="editors-xtd" method="upgrade">    <name>Universal buttons</name>
-    <author>Tazizos</author>    <creationDate>September 2021</creationDate>    <copyright></copyright>    <license>GNU/GPLv3 www.gnu.org/licenses/gpl-3.0.html</license>    <authorEmail></authorEmail>    <authorUrl>https://github.com/Tazzios</authorUrl>    <version>1.0</version>    <description>Add custom editor buttons</description>    <files>        <filename plugin="universalbuttons">universalbuttons.php</filename>        <filename>index.html</filename>
-    </files>
-	<config>
-	<fields name="params">		<fieldset name="basic">						<field				name="buttons"				type="subform"				default=''				label="Buttons"				description=""				multiple="true"				min="0"				max="50"				>		<form>						<field				name="Buttonlabel"				type="text"				default=""				label="Button Label"				description="Enter label text for the button"				maxlength="20"				size="10" />							<field				name="Buttonicon"				type="text"				default="comment"				label="Button icon"				description="Enter a mce icon name to show. Some examples: comment,plus,info,new-tab,redo,upload,help,file-add,file"				maxlength="20"				size="10" />															<field name="usergroups" type="usergrouplist"				label="Usergroup"				description="Select the usergroups which have access to this button" 				multiple="true" />					<field 				name="style" type="radio" 				default="0"				label="button style"				description=""				>				<option value="0">Popup</option>				<option value="1">Dialog</option>			</field>					<field				showon="style:0"				name="url"				type="text"				default=""				label="Relative URL "				description="insert the Relative url that need to be shown in the popup"				maxlength="100"				size="20" />							<field 				showon="style:0"				name="Componentonly" type="radio" 				default="1"				label="Component only"				description="Load Component without the template, may not work for every page."				>				<option value="1">Yes</option>				<option value="0">No</option>			</field>									<field				showon="style:0"				name="popupwidth" 				type="text" default="800" 				label="Popup width " 				description=""			/>			<field				showon="style:0"				name="popupheight" 				type="text" default="800" 				label="Popup height " 				description=""			/>						<field			showon="style:1"			name="code"			type="textarea"			default=""			label="Text or htmlcode to insert"			description="use %1 %2  as variable replace"			filter="safehtml"			maxlength="500"			size="30" />						<field				showon="style:1"				name="variables"				type="subform"				default=''				label="Variables"				description="Create dialog windows to ask variable values"				multiple="true"				min="0"				max="10"				>							<form>						<field			name="Variablelabel"			type="text"			default=""			label="Label text"			description="Instruction text to show in the prompt"			maxlength="200"			size="30" />			<field			name="variabledefault"			type="textarea"			default=""			label="Default text"			description="Default answer that is placed in the prompt"			maxlength="200"			size="30" />														</form>			</field>								</form>				</field>					
-		</fieldset>
-		
-	</fields>
-	</config>	<updateservers>      <server type="extension" priority="2" name="pdfviewer">https://raw.githubusercontent.com/tazzios/Universal-buttons/master/updates.xml</server>    </updateservers>
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="plugin" group="editors-xtd" method="upgrade">
+    <name>Universal buttons</name>
+    <author>Tazzios</author>
+    <creationDate>September 2021</creationDate>
+    <copyright></copyright>
+    <license>GNU/GPLv3 www.gnu.org/licenses/gpl-3.0.html</license>
+    <authorEmail></authorEmail>
+    <authorUrl>https://github.com/Tazzios</authorUrl>
+    <version>1.0</version>
+    <description>Add custom editor buttons</description>
+    <files>
+        <filename plugin="universalbuttons">universalbuttons.php</filename>
+        <filename>index.html</filename>
+
+    </files>
+
+
+	<config>
+
+	<fields name="params">
+
+		<fieldset name="basic">
+		
+		
+		<field
+				name="buttons"
+				type="subform"
+				default=''
+				label="Buttons"
+				description=""
+				multiple="true"
+				min="0"
+				max="50"
+				>
+		<form>
+			
+			<field
+
+				name="Buttonlabel"
+				type="text"
+				default=""
+				label="Button Label"
+				description="Enter label text for the button"
+				maxlength="20"
+				size="10" />
+				
+			<field
+
+				name="Buttonicon"
+				type="text"
+				default="comment"
+				label="Button icon"
+				description="Enter a mce icon name to show. Some examples: comment,plus,info,new-tab,redo,upload,help,file-add,file"
+				maxlength="20"
+				size="10" />
+				
+				
+				
+			<field name="usergroups" type="usergrouplist"
+				label="Usergroup"
+				description="Select the usergroups which have access to this button" 
+				multiple="true" />
+	
+				<field 
+				name="style" type="radio" 
+				default="0"
+				label="button style"
+				description=""
+				>
+				<option value="0">Popup</option>
+				<option value="1">Dialog</option>
+			</field>
+		
+			<field
+				showon="style:0"
+				name="url"
+				type="text"
+				default=""
+				label="Relative URL "
+				description="insert the Relative url that need to be shown in the popup"
+				maxlength="100"
+				size="20" />
+				
+			<field 
+				showon="style:0"
+				name="Componentonly" type="radio" 
+				default="1"
+				label="Component only"
+				description="Load Component without the template, may not work for every page."
+				>
+				<option value="1">Yes</option>
+				<option value="0">No</option>
+			</field>
+						
+			<field
+				showon="style:0"
+				name="popupwidth" 
+				type="text" default="800" 
+				label="Popup width " 
+				description=""
+			/>
+			<field
+				showon="style:0"
+				name="popupheight" 
+				type="text" default="800" 
+				label="Popup height " 
+				description=""
+			/>
+			
+			<field
+
+			showon="style:1"
+			name="code"
+			type="textarea"
+			default=""
+			label="Text or htmlcode to insert"
+			description="use %1 %2  as variable replace"
+			filter="safehtml"
+			maxlength="500"
+			size="30" />
+			
+			<field
+				showon="style:1"
+				name="variables"
+				type="subform"
+				default=''
+				label="Variables"
+				description="Create dialog windows to ask variable values"
+				multiple="true"
+				min="0"
+				max="10"
+				>
+				
+			<form>
+			
+
+			<field
+
+			name="Variablelabel"
+			type="text"
+			default=""
+			label="Label text"
+			description="Instruction text to show in the prompt"
+			maxlength="200"
+			size="30" />
+
+			<field
+
+			name="variabledefault"
+			type="textarea"
+			default=""
+			label="Default text"
+			description="Default answer that is placed in the prompt"
+			maxlength="200"
+			size="30" />
+			
+		
+			
+			
+			</form>
+			</field>
+			
+			
+		</form>
+		
+		</field>
+			
+		
+
+		</fieldset>
+
+
+		
+
+
+	</fields>
+
+
+	</config>
+	<updateservers>
+      <server type="extension" priority="2" name="pdfviewer">https://raw.githubusercontent.com/tazzios/Universal-buttons/master/updates.xml</server>
+    </updateservers>
+
+
 </extension>
