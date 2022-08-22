@@ -9,6 +9,8 @@
  
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Factory;
+
 class plgButtonUniversalButtons extends JPlugin
 {
     public function onDisplay($name, &$params)
@@ -47,7 +49,7 @@ class plgButtonUniversalButtons extends JPlugin
 
 					case "0":
 						
-						$app = JFactory::getApplication();
+						$app = Factory::getApplication();
 							// ...
 						$root = '';
 						if ($app->isAdmin()) {
@@ -104,7 +106,7 @@ class plgButtonUniversalButtons extends JPlugin
 							$iVariable++;
 						}
 					
-						$js .= 	" jInsertEditorText( str, editor); }";
+						$js .= 	" Joomla.editors.instances[editor].replaceSelection(str); }";
 
 							
 						$css = "";
