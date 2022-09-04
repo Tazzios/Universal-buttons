@@ -52,7 +52,7 @@ class plgButtonUniversalButtons extends JPlugin
 						$app = Factory::getApplication();
 							// ...
 						$root = '';
-						if ($app->isAdmin()) {
+						if ($app->isClient('administrator')) {
 							$root = '../';  // Joomla expects a relative path, leave site folder "administrator"
 						} else {
 							$root = '';
