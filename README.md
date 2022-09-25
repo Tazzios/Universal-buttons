@@ -1,3 +1,4 @@
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.com/donate/?business=SAT23GPU7F6AS&no_recurring=1&currency_code=EUR)
 # Universal-buttons
 Create your own buttons in the Joomla tinymce editor.
 Has your favorite plugin no button? create one your self
