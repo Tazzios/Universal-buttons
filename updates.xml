@@ -21,4 +21,25 @@
 		<maintainerurl>https://github.com/Tazzios/</maintainerurl>
 		<targetplatform name="joomla" version="3.([6789]|10)||(4.*)"/>
 	</update>
+	
+	<update>
+		<name>Universal buttons</name>
+		<description>Universal buttons</description>
+		<element>Universal buttons</element>
+		<type>plugin</type>
+		<folder>editors-xtd</folder>
+		<element>Universal buttons</element>
+		<version>1.1.2</version>
+		<infourl title="Release notes">https://github.com/Tazzios/Universal-buttons/releases/download/v1.1.2/universal.buttons-1.1.2.zip</infourl>
+		<downloads>
+			<downloadurl type="full" format="zip"></downloadurl>
+		</downloads>
+		<tags>
+			<tag>stable</tag>
+		</tags>
+		<client>0</client>
+		<maintainer>Tazzios</maintainer>
+		<maintainerurl>https://github.com/Tazzios/</maintainerurl>
+		<targetplatform name="joomla" version="5.*"/>
+	</update>
 </updates>

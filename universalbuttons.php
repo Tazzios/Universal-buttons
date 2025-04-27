@@ -10,8 +10,14 @@
 defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
+use Joomla\CMS\Plugin\CMSPlugin;
+use Joomla\CMS\Access\Access;
+use Joomla\CMS\Object\CMSObject;
 
-class plgButtonUniversalButtons extends JPlugin
+use Joomla\CMS\Uri\Uri;
+
+
+class plgButtonUniversalButtons extends CMSPlugin
 {
     public function onDisplay($name, &$params)
     {
@@ -30,7 +36,7 @@ class plgButtonUniversalButtons extends JPlugin
 					
 			// check autorisation
 			$autorised = 'false';
-			$usergroups = JAccess::getGroupsByUser(JFactory::getUser()->get('id'), $recursive = true);
+			$usergroups = Access::getGroupsByUser(Factory::getUser()->get('id'), $recursive = true);
 			
 
 			if (empty($value->usergroups)) { // if not set show button
@@ -58,7 +64,7 @@ class plgButtonUniversalButtons extends JPlugin
 							$root = '';
 						}
 										
-						$button = new JObject();
+
 						
 						$url = $root . $value->url;
 						
@@ -72,13 +78,16 @@ class plgButtonUniversalButtons extends JPlugin
 							}	
 						}
 							
+					//$button = new CMSObject();
+					$button          = new JObject;
+					$button->modal   = true;
+					$button->class   = 'btn';
+					$button->set('link', $url);
+					$button->options = "{handler: 'iframe', size: {x: ".$value->popupwidth.", y: ".$value->popupheight."}}";						
+					$button->set('text', $value->Buttonlabel);
+					//$button->set('onclick', 'insertText(\''.$value->name .'\')');
+					$button->set('icon', $value->Buttonicon);
 
-						$button->set('link', $url);
-						$button->set('options', "{handler: 'iframe', size: {x: ".$value->popupwidth.", y: ".$value->popupheight."}}");
-						
-						$button->set('text', $value->Buttonlabel);
-						//$button->set('onclick', 'insertText(\''.$value->name .'\')');
-						$button->set('name', $value->Buttonicon);
 							
 						
 						$buttons[$i]= $button ;
@@ -99,22 +108,23 @@ class plgButtonUniversalButtons extends JPlugin
 						foreach ($arr2 as $value2) {
 							
 						$js .= " txt".$iVariable." = prompt('". $value2->Variablelabel. "','".$value2->variabledefault."');
-							str = str.replace(/%".$iVariable."/g,txt".$iVariable."); 
-							
+							if (txt".$iVariable." !== null) {						
+								str = str.replace(/%".$iVariable."/g,txt".$iVariable.");
+							}
 							";
 							 
 							$iVariable++;
 						}
-					
-						$js .= 	" Joomla.editors.instances[editor].replaceSelection(str); }";
+
+						$js .= " if (str.includes('%') == false) { Joomla.editors.instances[editor].replaceSelection(str);} }";
 
 							
 						$css = "";
 						
-						$doc = JFactory::getDocument();
+						$doc = Factory::getDocument();
 						$doc->addScriptDeclaration($js);
 						$doc->addStyleDeclaration($css);
-						$button = new JObject();
+						$button = new CMSObject();
 						$button->set('modal', false);
 						$button->set('onclick', 'buttonClick'.$i.'(\''.$name.'\');return false;');
 						$button->set('text', $value->Buttonlabel);

@@ -1,3 +1,9 @@
+v1.1.2
+Untested with J3!
+Fix: J5 Popup #5
+improved: Do not insert code when cancel is clicked  #6
+Improved: J5 code
+
 v1.1.1
 Fix: j4 #4
 
