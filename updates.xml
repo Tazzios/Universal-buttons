@@ -40,6 +40,6 @@
 		<client>0</client>
 		<maintainer>Tazzios</maintainer>
 		<maintainerurl>https://github.com/Tazzios/</maintainerurl>
-		<targetplatform name="joomla" version="5.*"/>
+		<targetplatform name="joomla" version="4.*"/>
 	</update>
 </updates>
