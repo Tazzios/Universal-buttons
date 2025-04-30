@@ -83,7 +83,8 @@ class plgButtonUniversalButtons extends CMSPlugin
 					$button->modal   = true;
 					$button->class   = 'btn';
 					$button->set('link', $url);
-					$button->options = "{handler: 'iframe', size: {x: ".$value->popupwidth.", y: ".$value->popupheight."}}";						
+					$button->options = "{handler: 'iframe', size: {x: ".$value->popupwidth.", y: ".$value->popupheight."}}";
+					$button->set('name', 'button'. $i );
 					$button->set('text', $value->Buttonlabel);
 					//$button->set('onclick', 'insertText(\''.$value->name .'\')');
 					$button->set('icon', $value->Buttonicon);
@@ -128,7 +129,8 @@ class plgButtonUniversalButtons extends CMSPlugin
 						$button->set('modal', false);
 						$button->set('onclick', 'buttonClick'.$i.'(\''.$name.'\');return false;');
 						$button->set('text', $value->Buttonlabel);
-						$button->set('name', $value->Buttonicon);
+						$button->set('name', 'button'. $i );
+						$button->set('icon', $value->Buttonicon);
 						$button->set('link', '#');
 						
 						$buttons[$i]= $button ;
