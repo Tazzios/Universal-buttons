@@ -63,36 +63,29 @@ class plgButtonUniversalButtons extends CMSPlugin
 						} else {
 							$root = '';
 						}
+												
+						$url = $root . $value->url ;
+						
 										
-
-						
-						$url = $root . $value->url;
-						
-						
-						
-						if ($this->params->get('componentonly')==1 ) {
+						if ($value->Componentonly==true ) {
 							if( strpos( $url , '?' ) !== false) {
-								$url .= $url . '&tmpl=component' ;
+								$url .= '&tmpl=component' ;
 							} else {
-								$url .= $url . '?tmpl=component' ;
+								$url .= '?tmpl=component' ;
 							}	
 						}
 							
-					//$button = new CMSObject();
-					$button          = new JObject;
-					$button->modal   = true;
-					$button->class   = 'btn';
-					$button->set('link', $url);
-					$button->options = "{handler: 'iframe', size: {x: ".$value->popupwidth.", y: ".$value->popupheight."}}";
-					$button->set('name', 'button'. $i );
-					$button->set('text', $value->Buttonlabel);
-					//$button->set('onclick', 'insertText(\''.$value->name .'\')');
-					$button->set('icon', $value->Buttonicon);
+						$button = new CMSObject();
+						$button->modal   = true;
+						$button->class   = 'btn';
+						$button->set('link', $url);
+						$button->options = "{handler: 'iframe', size: {x: ".$value->popupwidth.", y: ".$value->popupheight."}}";
+						$button->set('name', 'button'. $i );					
+						$button->set('text', $value->Buttonlabel);
+						$button->set('icon', $value->Buttonicon);
 
-							
-						
 						$buttons[$i]= $button ;
-						break;
+					break;
 
 					case "1":
 					
@@ -128,8 +121,8 @@ class plgButtonUniversalButtons extends CMSPlugin
 						$button = new CMSObject();
 						$button->set('modal', false);
 						$button->set('onclick', 'buttonClick'.$i.'(\''.$name.'\');return false;');
-						$button->set('text', $value->Buttonlabel);
 						$button->set('name', 'button'. $i );
+						$button->set('text', $value->Buttonlabel);
 						$button->set('icon', $value->Buttonicon);
 						$button->set('link', '#');
 						
